@@ -1,0 +1,32 @@
+ion-content{
+    .black{
+        background-color: black;
+        background-image: url('/assets/back.png');
+        width: 100vw;
+        height: 100vh; 
+
+        .logo{
+            background-image: url('/assets/logo.png');
+            background-repeat: no-repeat;
+            background-size: 100px;
+            background-position: center;
+            
+        }
+
+    }
+    
+}
+ion-toolbar{
+    padding: 15px;
+    --background: transparent;
+    --ion-color-base: transparent !important;
+}
+ion-avatar{
+    
+    margin-bottom: auto;
+    border-style: solid;
+    border-color: #ffee00;
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+}

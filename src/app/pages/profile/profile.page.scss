@@ -1,0 +1,42 @@
+ion-content{
+    .black{
+        background-color: black;
+        background-image: url('/assets/back.png');
+        width: 100vw;
+        height: 100vh;
+
+        .form{
+            padding: 20px;
+        }
+        h2{
+            text-align: center;
+        }
+    }
+}
+
+ion-avatar{
+    margin: auto;
+    border-style: ridge;
+    border-color: #ffee00;
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+
+}
+
+ion-checkbox {
+    float:right;
+    --size: 25px;
+    --background-checked: #ffee00;
+    
+}
+  
+ion-checkbox::part(container) {
+    text-align: auto;
+    border-radius: 6px;
+    border: 2px solid #ffee00;
+    
+}
+ion-button{
+    float: right;
+}

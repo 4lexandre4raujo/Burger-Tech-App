@@ -1,0 +1,35 @@
+<ion-content>
+  <div class="black">
+    <div class="logo">
+    </div>
+    <ion-button (click)="sair()" color="danger" size="small">Sair</ion-button>
+    <div class="form">
+      <ion-avatar>
+        <img src='/assets/profile.png'/>
+      </ion-avatar>
+      <h2>Alexandre Araújo</h2>
+      <p class="endereco" [routerLink]="['/endereco']">Endereço</p>
+      <p class="endereco" [routerLink]="['/pontosfidelidade']">Pontos de fidelidade</p>
+      <p class="endereco" [routerLink]="['/infocontato']">Informações de contato</p>
+        <p>Exibir nome no pedido
+          <ion-checkbox slot="end"></ion-checkbox></p>
+        <p>Notificações
+          <ion-checkbox slot="end"></ion-checkbox></p>
+        <p>Receber Mensagens
+          <ion-checkbox slot="end"></ion-checkbox></p>
+    </div>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="home" [routerLink]="['/home']">
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Início</ion-label>
+        </ion-tab-button>
+      
+        <ion-tab-button tab="profile" >
+          <ion-icon name="person-circle"></ion-icon>
+          <ion-label>Perfil</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </div>
+</ion-content>

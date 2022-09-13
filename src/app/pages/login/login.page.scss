@@ -1,0 +1,34 @@
+ion-content{
+    .black{
+        background-color: black;
+        background-image: url('/assets/back.png');
+        width: 100vw;
+        height: 100vh; 
+
+        .form{
+            padding: 20px;
+        }
+        
+        .item{
+            margin-bottom: 20px;
+            border-radius: 10px;
+
+        }
+        .logo{
+            background-image: url('/assets/logo.png');
+            background-repeat: no-repeat;
+            min-height: 300px;
+            min-width: 100vw;
+            background-position: center;
+            
+        }
+        .register{
+            float: right;
+            color: #0066ff;
+            font-size: 16px;
+                
+            }
+    }
+    
+   
+}

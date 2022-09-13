@@ -1,0 +1,7 @@
+{
+  "name": "Burger-Tech-App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
