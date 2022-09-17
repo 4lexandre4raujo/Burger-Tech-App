@@ -11,12 +11,13 @@
         <ion-label position="floating">Senha</ion-label>
         <ion-input type="password" [(ngModel)]="senha"></ion-input>
       </ion-item>
+      <!--<p class="register">{{getEmailMaiusculo()}}</p>-->
         <p class="text-mirror">{{email}}</p>
         <p class="text-mirror">{{senha}}</p>
       <ion-button expand="block" (click)="entrar()">Entrar</ion-button>
       <p class="register" [routerLink]="['/register']">Cadastrar</p>
       <ul>
-        <li class="register" *ngFor="let produto of produtos | async">
+        <li class="produtos" *ngFor="let produto of produtos | async">
           {{produto.nome}} - R$ {{produto.valor}}
         </li>
       </ul>
