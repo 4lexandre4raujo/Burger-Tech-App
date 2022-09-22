@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
   },
+  {
+    path: 'request',
+    loadChildren: () => import('./pages/request/request.module').then( m => m.RequestPageModule)
+  },
 
   
 
