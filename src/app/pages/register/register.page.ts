@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { Validate } from '../../util/validate';
 
 @Component({
@@ -10,17 +9,16 @@ import { Validate } from '../../util/validate';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  public user: any = {};
-
   email: string = '';
   senha = '';
   senhaRepetida = '';
   habilitaSalvar = false;
-  
+  loading: HTMLIonLoadingElement;
   constructor(
     private router: Router,
-    /*private afa: AngularFireAuth,
-    private afs: AngularFirestore*/
+    private alertController: AlertController,
+    private toastController: ToastController,
+    private loadingCtrl: LoadingController,
   ) { }
 
   ngOnInit() {
@@ -28,24 +26,9 @@ export class RegisterPage implements OnInit {
       this.habilitaSalvar=!this.habilitaSalvar;
     }, 500);
   }
-  /*async register() {
-    try {
-      const newUser = await this.afa.authState.createUserWhithEmailAndPassword(this.user.nome, this.user.sobrenome, this.user.email, this.user.senha);
-      await this.afs.collection('usuarios').doc(newUser.user.uid).set(this.user);
-      console.log('Cadastro efetuado com sucesso!');
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  */
 
   registrar(){
-    console.log('cadastrando...');
-    console.log(this.email, this.senha, this.senhaRepetida);
-    if(Validate.validateEmail(this.email) && this.senha === this.senhaRepetida)
-      this.router.navigateByUrl('login');
-    else
-      alert('Dados incorretos');
+    this.presentAlert();
   }
 
   canSave(): boolean{
@@ -54,4 +37,66 @@ export class RegisterPage implements OnInit {
     this.senha.length >= 3
   }
 
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Confirme os dados',
+      message: 'Leia seus dados atentamente e confirme: seus dados estão corretos?',
+      buttons: [
+        {
+          text: 'Não',
+          role: 'cancel',
+          handler: () => {
+            console.log('O leso cancelou...')
+          }
+        },
+        {
+          text: 'Sim',
+          role: 'confirm',
+          handler: async () => {
+            this.showLoading();
+            setTimeout( async () => {
+              await this.fecharLoading();
+            },
+            2000)
+            console.log('O leso confirmou!')
+            console.log('cadastrando...');
+            console.log(this.email, this.senha, this.senhaRepetida);
+            if(Validate.validateEmail(this.email) && this.senha === this.senhaRepetida){
+              this.presentToast('Bem vindo!');
+              this.router.navigateByUrl('home');
+            }
+            else{
+              this.presentToast('Dados inválidos!');
+            }
+
+          }
+        },
+      ],
+
+    });
+
+    await alert.present();
+  }
+
+  async presentToast( mensagem: string ) {
+    const toast = await this.toastController.create({
+      message: mensagem,
+      duration: 3000,
+      position: 'bottom'
+    });
+
+    await toast.present();
+  }
+
+  private async showLoading() {
+    this.loading = await this.loadingCtrl.create({
+      message: 'Aguarde...'
+    });
+
+    this.loading.present();
+  }
+
+  private async fecharLoading(){
+    await this.loading.dismiss();
+  }
 }
