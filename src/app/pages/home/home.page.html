@@ -1,41 +1,66 @@
 <ion-content>
   <div class="black">
     <ion-toolbar class="logo">
-      <ion-avatar slot="end" [routerLink]="['/profile']">
+      <ion-avatar slot="end" [routerLink]="['/tabs/profile']">
         <img src='/assets/profile.png' />
       </ion-avatar>
     </ion-toolbar>
-    <p>Recomendados</p>
+    <ion-label>Recomendados</ion-label>
     <ion-grid>
-      <ion-row>
-        <ion-col size="12">
-  
-          <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav
-            (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
-            <ion-slide *ngFor="let s of sliderOne.slidesItems">
-              <img src='/assets/logo.png'>
-              <span class="slide-text">Slide id {{s.id}}</span>
-            </ion-slide>
-          </ion-slides>
-  
-        </ion-col>
-  
-      </ion-row>
+      <div class="slides01">
+        <ion-slides [options]="slideOpts">
+          <ion-slide>
+            <img src="/assets/recomendados01.png" />
+          </ion-slide>
+          <ion-slide>
+            <img src="/assets/recomendados01.png" />
+          </ion-slide>
+          <ion-slide>
+            <img src="/assets/recomendados01.png" />
+          </ion-slide>
+          <ion-slide>
+            <img src="/assets/recomendados01.png" />
+          </ion-slide>
+        </ion-slides>
+      </div>
     </ion-grid>
-    <ion-tabs>
-      <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="home">
-          <ion-label>Início</ion-label>
-        </ion-tab-button>
-
-        <ion-tab-button tab="request" [routerLink]="['/request']">
-          <ion-label>Pedidos</ion-label>
-        </ion-tab-button>
-      
-        <ion-tab-button tab="profile" [routerLink]="['/profile']">
-          <ion-label class="profile">Perfil</ion-label>
-        </ion-tab-button>
-      </ion-tab-bar>
-    </ion-tabs>
+    <ion-grid>
+      <div class="slides02">
+        <ion-slides [options]="slideOpts">
+          <ion-slide>
+            <img src="/assets/recomendados02.png" />
+            <img src="/assets/recomendados02.png" />
+            <img src="/assets/recomendados02.png" />
+            <img src="/assets/recomendados02.png" />
+          </ion-slide>
+          <ion-slide>
+            <img src="/assets/recomendados02.png" />
+            <img src="/assets/recomendados02.png" />
+            <img src="/assets/recomendados02.png" />
+            <img src="/assets/recomendados02.png" />
+          </ion-slide>
+          <ion-slide>
+            <img src="/assets/recomendados02.png" />
+            <img src="/assets/recomendados02.png" />
+            <img src="/assets/recomendados02.png" />
+            <img src="/assets/recomendados02.png" />
+          </ion-slide>
+          <ion-slide>
+            <img src="/assets/recomendados02.png" />
+            <img src="/assets/recomendados02.png" />
+            <img src="/assets/recomendados02.png" />
+            <img src="/assets/recomendados02.png" />
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </ion-grid>
+    <ion-grid>
+      <div class="destaque">
+        <img src="/assets/bbq.png" />
+        <img src="/assets/grillhouse.png" />
+        <img src="/assets/roaster.png" />
+        <img src="/assets/roaster.png" />
+      </div>
+    </ion-grid>
   </div>
 </ion-content>

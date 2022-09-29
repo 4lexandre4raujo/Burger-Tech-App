@@ -15,12 +15,18 @@
         <p class="text-mirror">{{email}}</p>
         <p class="text-mirror">{{senha}}</p>
       <ion-button expand="block" (click)="entrar()">Entrar</ion-button>
-      <p class="register" [routerLink]="['/register']">Cadastrar</p>
+      <div>
+        <p>
+        <ion-label>Esqueceu a senha?
+        <p class="register" [routerLink]="['/register']">Cadastrar</p></ion-label>
+      </div>
+      <!--
       <ul>
         <li class="produtos" *ngFor="let produto of produtos | async">
           {{produto.nome}} - R$ {{produto.valor}}
         </li>
       </ul>
+      -->
     </div>
   </div>
 </ion-content>

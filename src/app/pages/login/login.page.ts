@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Validate } from '../../util/validate';
+
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-login',
@@ -46,7 +46,7 @@ export class LoginPage implements OnInit {
         console.log(x);
         if(x.length === 1){
           alert('bem vindo')
-          this.router.navigateByUrl('home');
+          this.router.navigateByUrl('/tabs/home');
         }else{
           //não está logado
           alert('Você não está logado!');

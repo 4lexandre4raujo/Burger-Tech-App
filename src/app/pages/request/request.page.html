@@ -1,24 +1,9 @@
 <ion-content>
   <div class="black">
     <ion-toolbar class="logo">
-      <ion-avatar slot="end" [routerLink]="['/profile']">
+      <ion-avatar slot="end" [routerLink]="['/tabs/profile']">
         <img src='/assets/profile.png' />
       </ion-avatar>
     </ion-toolbar>
-    <ion-tabs>
-      <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="home" [routerLink]="['/home']">
-          <ion-label>Início</ion-label>
-        </ion-tab-button>
-        
-        <ion-tab-button tab="request">
-          <ion-label class="request">Pedidos</ion-label>
-        </ion-tab-button>
-
-        <ion-tab-button tab="profile" [routerLink]="['/profile']">
-          <ion-label>Perfil</ion-label>
-        </ion-tab-button>
-      </ion-tab-bar>
-    </ion-tabs>
   </div>
 </ion-content>

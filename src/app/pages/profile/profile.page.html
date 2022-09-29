@@ -1,21 +1,19 @@
 
 <ion-content>
   <div class="black">
-    <div class="logo">
-    </div>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-back-button defaultHref="home"></ion-back-button>
-        </ion-buttons>
-      </ion-toolbar>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
     <div class="form">
       <ion-avatar>
         <img src='/assets/profile.png'/>
       </ion-avatar>
       <h3>Alexandre Araújo</h3>
-      <p class="endereco" [routerLink]="['/endereco']">Endereço</p>
-      <p class="endereco" [routerLink]="['/pontosfidelidade']">Pontos de fidelidade</p>
-      <p class="endereco" [routerLink]="['/infocontato']">Informações de contato</p>
+      <p>Endereço</p>
+      <p>Pontos de fidelidade</p>
+      <p>Informações de contato</p>
         <p>Exibir nome no pedido
           <ion-checkbox slot="end"></ion-checkbox></p>
         <p>Notificações
@@ -23,22 +21,7 @@
         <p>Receber Mensagens
           <ion-checkbox slot="end"></ion-checkbox></p>
         <p class="endereco" (click)="sair()">Sair</p>
+        <ion-button color="warning" expand="block" routerLink="/tabs/home">Salvar</ion-button>
     </div>
-    <ion-button color="warning" expand="block" routerLink="/home">Salvar</ion-button>
-    <ion-tabs>
-      <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="home" [routerLink]="['/home']">
-          <ion-label>Início</ion-label>
-        </ion-tab-button>
-
-        <ion-tab-button tab="request" [routerLink]="['/request']">
-          <ion-label>Pedidos</ion-label>
-        </ion-tab-button>
-      
-        <ion-tab-button tab="profile" >
-          <ion-label class="profile">Perfil</ion-label>
-        </ion-tab-button>
-      </ion-tab-bar>
-    </ion-tabs>
   </div>
 </ion-content>
