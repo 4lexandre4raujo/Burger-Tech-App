@@ -8,9 +8,9 @@
     </ion-toolbar>
     <div class="form">
       <ion-avatar>
-        <img src='/assets/profile.png'/>
+        <img src='/assets/avataricon.png'/>
       </ion-avatar>
-      <h3>Alexandre Araújo</h3>
+      <h3>Nome Usuário</h3>
       <p>Endereço</p>
       <p>Pontos de fidelidade</p>
       <p>Informações de contato</p>
@@ -20,8 +20,8 @@
           <ion-checkbox slot="end"></ion-checkbox></p>
         <p>Receber Mensagens
           <ion-checkbox slot="end"></ion-checkbox></p>
-        <p class="endereco" (click)="sair()">Sair</p>
-        <ion-button color="warning" expand="block" routerLink="/tabs/home">Salvar</ion-button>
+        <p class="endereco" (click)="presentAlert()">Sair</p>
+        <ion-button color="warning" expand="block" (click)="presentToast('bottom')" routerLink="/tabs/home">Salvar</ion-button>
     </div>
   </div>
 </ion-content>

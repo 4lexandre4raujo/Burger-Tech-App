@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { Validate } from '../../util/validate';
@@ -12,6 +13,8 @@ export class RegisterPage implements OnInit {
   email: string = '';
   senha = '';
   senhaRepetida = '';
+  nome = '';
+  sobrenome='';
   habilitaSalvar = false;
   loading: HTMLIonLoadingElement;
   constructor(
@@ -19,6 +22,7 @@ export class RegisterPage implements OnInit {
     private alertController: AlertController,
     private toastController: ToastController,
     private loadingCtrl: LoadingController,
+    public firestore: AngularFirestore
   ) { }
 
   ngOnInit() {
@@ -39,14 +43,14 @@ export class RegisterPage implements OnInit {
 
   async presentAlert() {
     const alert = await this.alertController.create({
-      header: 'Confirme os dados',
+      header: 'Confirmação de dados!',
       message: 'Leia seus dados atentamente e confirme: seus dados estão corretos?',
       buttons: [
         {
           text: 'Não',
           role: 'cancel',
           handler: () => {
-            console.log('O leso cancelou...')
+            console.log('Confirmação cancelada...')
           }
         },
         {
@@ -58,12 +62,26 @@ export class RegisterPage implements OnInit {
               await this.fecharLoading();
             },
             2000)
-            console.log('O leso confirmou!')
+            console.log('Dados confirmado com sucesso!')
             console.log('cadastrando...');
             console.log(this.email, this.senha, this.senhaRepetida);
-            if(Validate.validateEmail(this.email) && this.senha === this.senhaRepetida){
-              this.presentToast('Bem vindo!');
-              this.router.navigateByUrl('home');
+            if(Validate.validateEmail(this.email) && this.senha === this.senhaRepetida && this.nome.length > 3 && this.sobrenome.length > 3){
+              try{
+                await this.firestore.collection('usuarios').add({
+                  email: this.email, 
+                  senha: this.senha,
+                  nome: this.nome,
+                  sobrenome: this.sobrenome,
+                  estaAtivo: true
+                });
+                this.presentToast('Bem vindo!');
+                this.router.navigateByUrl('tabs/home');
+              }
+              catch(erro){
+                console.log(erro);
+                //alert(erro.message)
+              }
+              
             }
             else{
               this.presentToast('Dados inválidos!');

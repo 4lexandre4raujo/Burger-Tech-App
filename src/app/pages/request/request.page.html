@@ -2,8 +2,24 @@
   <div class="black">
     <ion-toolbar class="logo">
       <ion-avatar slot="end" [routerLink]="['/tabs/profile']">
-        <img src='/assets/profile.png' />
+        <img src='/assets/avataricon.png' />
       </ion-avatar>
     </ion-toolbar>
+    <div class="form">
+      <ion-card>
+          <ion-card-header>
+            <div>
+              <img class="avatar-request" src='/assets/avataricon.png'/>
+            </div>
+          </ion-card-header>
+        <ion-card-content>
+          <ion-button color="warning" expand="block" routerLink="/tabs/request">Acompanhar</ion-button>
+          <p>Item 1</p>
+          <p>Item 2</p>
+          <p>Item 3</p>
+          <p>Item 4</p>
+        </ion-card-content>
+      </ion-card>
+    </div>
   </div>
 </ion-content>

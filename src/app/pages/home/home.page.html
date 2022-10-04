@@ -2,23 +2,26 @@
   <div class="black">
     <ion-toolbar class="logo">
       <ion-avatar slot="end" [routerLink]="['/tabs/profile']">
-        <img src='/assets/profile.png' />
+        <img src='/assets/avataricon.png' />
       </ion-avatar>
     </ion-toolbar>
     <ion-label>Recomendados</ion-label>
     <ion-grid>
       <div class="slides01">
         <ion-slides [options]="slideOpts">
-          <ion-slide>
+          <ion-slide (click)="presentAlert()">
+            <img  src="/assets/recomendados01.png" />
+          </ion-slide>
+
+          <ion-slide (click)="presentAlert()">
             <img src="/assets/recomendados01.png" />
           </ion-slide>
-          <ion-slide>
+
+          <ion-slide (click)="presentAlert()">
             <img src="/assets/recomendados01.png" />
           </ion-slide>
-          <ion-slide>
-            <img src="/assets/recomendados01.png" />
-          </ion-slide>
-          <ion-slide>
+
+          <ion-slide (click)="presentAlert()">
             <img src="/assets/recomendados01.png" />
           </ion-slide>
         </ion-slides>
@@ -27,25 +30,28 @@
     <ion-grid>
       <div class="slides02">
         <ion-slides [options]="slideOpts">
-          <ion-slide>
+          <ion-slide (click)="presentAlert()">
             <img src="/assets/recomendados02.png" />
             <img src="/assets/recomendados02.png" />
             <img src="/assets/recomendados02.png" />
             <img src="/assets/recomendados02.png" />
           </ion-slide>
-          <ion-slide>
+
+          <ion-slide (click)="presentAlert()">
             <img src="/assets/recomendados02.png" />
             <img src="/assets/recomendados02.png" />
             <img src="/assets/recomendados02.png" />
             <img src="/assets/recomendados02.png" />
           </ion-slide>
-          <ion-slide>
+
+          <ion-slide (click)="presentAlert()">
             <img src="/assets/recomendados02.png" />
             <img src="/assets/recomendados02.png" />
             <img src="/assets/recomendados02.png" />
             <img src="/assets/recomendados02.png" />
           </ion-slide>
-          <ion-slide>
+
+          <ion-slide (click)="presentAlert()">
             <img src="/assets/recomendados02.png" />
             <img src="/assets/recomendados02.png" />
             <img src="/assets/recomendados02.png" />
@@ -55,7 +61,7 @@
       </div>
     </ion-grid>
     <ion-grid>
-      <div class="destaque">
+      <div (click)="presentAlert()" class="destaque">
         <img src="/assets/bbq.png" />
         <img src="/assets/grillhouse.png" />
         <img src="/assets/roaster.png" />

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>  
+  <label>LISTA DE USUÁRIOS</label>
+  <ul>
+    <li class="usuarios" *ngFor="let usuario of usuarios | async">
+      Usuário: {{usuario.nome}} {{usuario.sobrenome}}
+      <p>
+      Email: {{usuario.email}}
+      <p>
+      Senha: {{usuario.senha}}
+    </li>
+  </ul>
+</ion-content>

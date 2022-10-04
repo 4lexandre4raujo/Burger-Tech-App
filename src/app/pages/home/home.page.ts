@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -16,10 +17,20 @@ export class HomePage implements OnInit {
   };
   
   constructor(
+    private alertController: AlertController
 
   ) {}
 
   ngOnInit() {
+  }
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Alerta!',
+      message: 'Produto não disponível!',
+      buttons: ['Ok'],
+    });
+
+    await alert.present();
   }
 
 }
