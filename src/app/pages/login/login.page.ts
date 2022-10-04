@@ -51,7 +51,7 @@ export class LoginPage implements OnInit {
 
         if(x.length === 1){
           this.presentToast('Bem vindo!');
-          this.router.navigateByUrl('/tabs/home');
+          this.router.navigate(['/tabs/home']);
         }else{
           //não está logado
           this.presentToast('Usuário ou senha incorretos!');
